@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Checklista – Projekty i Faucety</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    .tables-container {
+      display: flex;
+      gap: 30px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 400px;
+    }
+    th, td {
+      border: 1px solid #aaa;
+      padding: 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    th .reset-btn {
+      display: block;
+      margin: 0 auto;
+    }
+    .reset-all {
+      margin-bottom: 20px;
+      padding: 10px 18px;
+      font-weight: bold;
+      background: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .link-item {
+      list-style: none;
+    }
+    .centered {
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <button class="reset-all" id="reset-all">RESET ALL</button>
+
+  <div class="tables-container">
+    <!-- Tabela 1 – Projekty -->
+    <table>
+      <tr>
+        <th class="centered">PROJEKTY</th>
+        <th><button class="reset-btn" id="reset-table1">RESET</button></th>
+      </tr>
+      <tr>
+        <td>
+          <li class="link-item">
+            <a href="https://app.galxe.com/quest/SaharaAI/GCNLYtpFM5">SAHARA GALXE</a>
+            (<a href="https://app.galxe.com/quest/SaharaAI/GCNLYtpFM5" target="_blank">C</a>)
+          </li>
+        </td>
+        <td>
+          <label><input type="checkbox" class="check table1" data-id="sahara1"> CHECK</label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <li class="link-item">
+            <a href="https://legends.saharalabs.ai/">SAHARA LEGENDS</a>
+            (<a href="https://legends.saharalabs.ai/" target="_blank">C</a>)
+          </li>
+        </td>
+        <td>
+          <label><input type="checkbox" class="check table1" data-id="sahara2"> CHECK</label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <li class="link-item">
+            <a href="https://app.saharalabs.ai/developer-platform/main/explore">SAHARA SIWA TESTNET</a>
+            (<a href="https://app.saharalabs.ai/developer-platform/main/explore" target="_blank">C</a>)
+          </li>
+        </td>
+        <td>
+          <label><input type="checkbox" class="check table1" data-id="sahara3"> CHECK</label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <li class="link-item">
+            <a href="https://app.saharalabs.ai/#/">SAHARA DATA SERVICES</a>
+            (<a href="https://app.saharalabs.ai/#/" target="_blank">C</a>)
+          </li>
+        </td>
+        <td>
+          <label><input type="checkbox" class="check table1" data-id="sahara4"> CHECK</label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <li class="link-item">
+            <a href="https://app.layer3.xyz/rewards">LAYER 3</a>
+            (<a href="https://app.layer3.xyz/rewards" target="_blank">C</a>)
+          </li>
+        </td>
+        <td>
+          <label><input type="checkbox" class="check table1" data-id="kampania1"> CHECK</label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <li class="link-item">
+            <a href="https://micro3.io/">MICRO 3</a>
+            (<a href="https://micro3.io/" target="_blank">C</a>)
+          </li>
+        </td>
+        <td>
+          <label><input type="checkbox" class="check table1" data-id="kampania2"> CHECK</label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <li class="link-item">
+            <a href="https://quest.intract.io/achievements">INTRACT</a>
+            (<a href="https://quest.intract.io/achievements" target="_blank">C</a>)
+          </li>
+        </td>
+        <td>
+          <label><input type="checkbox" class="check table1" data-id="kampania3"> CHECK</label>
+        </td>
+      </tr>
+    </table>
+
+    <!-- Tabela 2 – Faucety -->
+    <table>
+      <tr>
+        <th class="centered">FAUCETY / 24H</th>
+        <th><button class="reset-btn" id="reset-table2">RESET</button></th>
+      </tr>
+      <!-- Wiersze do uzupełnienia później -->
+      <tr>
+        <td>–</td>
+        <td><label><input type="checkbox" class="check table2" data-id="faucet0"> CHECK</label></td>
+      </tr>
+    </table>
+  </div>
+
+  <script>
+    // Przywrócenie stanu checkboxów
+    document.querySelectorAll('.check').forEach(checkbox => {
+      const id = checkbox.dataset.id;
+      checkbox.checked = localStorage.getItem(id) === 'true';
+      checkbox.addEventListener('change', () => {
+        localStorage.setItem(id, checkbox.checked);
+      });
+    });
+
+    // Reset tabel
+    function resetTable(selector) {
+      document.querySelectorAll(selector).forEach(cb => {
+        cb.checked = false;
+        localStorage.removeItem(cb.dataset.id);
+      });
+    }
+
+    document.getElementById('reset-table1').addEventListener('click', () => {
+      if (confirm("Zresetować checklistę PROJEKTY?")) {
+        resetTable('.table1');
+      }
+    });
+
+    document.getElementById('reset-table2').addEventListener('click', () => {
+      if (confirm("Zresetować checklistę FAUCETY?")) {
+        resetTable('.table2');
+      }
+    });
+
+    document.getElementById('reset-all').addEventListener('click', () => {
+      if (confirm("Zresetować WSZYSTKIE checklisty?")) {
+        resetTable('.check');
+      }
+    });
+  </script>
+
+</body>
+</html>
