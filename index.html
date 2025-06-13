@@ -10,14 +10,14 @@
     }
     .tables-container {
       display: flex;
-      gap: 30px;
+      gap: 10px; /* zmniejszony odstęp między tabelami */
       justify-content: space-between;
       flex-wrap: wrap;
     }
     table {
       border-collapse: collapse;
       width: 100%;
-      max-width: 400px;
+      max-width: 600px; /* szersze tabele */
     }
     th, td {
       border: 1px solid #aaa;
@@ -31,6 +31,12 @@
     th .reset-btn {
       display: block;
       margin: 0 auto;
+    }
+    td:first-child, th:first-child {
+      width: 75%; /* proporcja kolumn */
+    }
+    td:last-child, th:last-child {
+      width: 25%; /* proporcja kolumn */
     }
     .reset-all {
       margin-bottom: 20px;
@@ -56,6 +62,7 @@
   <button class="reset-all" id="reset-all">RESET ALL</button>
 
   <div class="tables-container">
+
     <!-- Tabela 1 – Projekty -->
    <table>
   <tr>
