@@ -2,42 +2,51 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
-  <title>Checklista – Projekty i Faucety</title>
+  <title>CHECK</title>
   <style>
     body {
       font-family: sans-serif;
       padding: 20px;
     }
+
     .tables-container {
       display: flex;
-      gap: 10px; /* zmniejszony odstęp między tabelami */
-      justify-content: space-between;
       flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-start; /* tabele od lewej, wolna przestrzeń z prawej */
     }
+
     table {
       border-collapse: collapse;
-      width: 100%;
-      max-width: 600px; /* szersze tabele */
+      flex: 1 1 0; /* pozwala na równomierne dzielenie miejsca */
+      min-width: 280px;
+      max-width: 600px;
     }
+
     th, td {
       border: 1px solid #aaa;
       padding: 8px;
       text-align: left;
       vertical-align: top;
     }
+
     th {
       background-color: #f2f2f2;
     }
+
     th .reset-btn {
       display: block;
       margin: 0 auto;
     }
+
     td:first-child, th:first-child {
-      width: 75%; /* proporcja kolumn */
+      width: 45%; /* zmniejszona szerokość kolumny z linkami */
     }
+
     td:last-child, th:last-child {
-      width: 25%; /* proporcja kolumn */
+      width: 55%; /* więcej miejsca dla checków */
     }
+
     .reset-all {
       margin-bottom: 20px;
       padding: 10px 18px;
@@ -48,9 +57,11 @@
       border-radius: 6px;
       cursor: pointer;
     }
+
     .link-item {
       list-style: none;
     }
+
     .centered {
       text-align: center;
       font-weight: bold;
@@ -62,6 +73,7 @@
   <button class="reset-all" id="reset-all">RESET ALL</button>
 
   <div class="tables-container">
+
 
     <!-- Tabela 1 – Projekty -->
    <table>
