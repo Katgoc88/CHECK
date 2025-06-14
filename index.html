@@ -601,51 +601,392 @@
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 
-import pandas as pd
-from IPython.display import display, HTML
 
-# Lista 50 tekstów angielskich
-texts = [
-    "Hello everyone!", "How's your day going?", "Wishing you a great day!", "Nice to see you all here!", "Hope you're doing well!",
-    "Great project!", "Love the updates!", "Following along!", "This looks promising!", "Let's build together!",
-    "I'm excited for what's coming.", "This is fire!", "Amazing community!", "GM everyone!", "Keep going strong!",
-    "This is really helpful.", "Thanks for the info!", "Nice work team!", "Anyone needs help?", "On it!",
-    "Daily check-in!", "Still here!", "Building every day!", "Good vibes only!", "You guys rock!",
-    "Any alpha today?", "Good job!", "Made some progress!", "Anyone else doing this?", "LFG!",
-    "Catching up on tasks!", "Any tips for this?", "Love this energy!", "Back again!", "Daily momentum!",
-    "Hope everyone's doing well.", "Cheers to the team!", "Let's grow together!", "Another day, another step!", "Stay consistent!",
-    "Keep building!", "What’s the latest?", "Any news today?", "I’m here for it!", "Learning so much!",
-    "Still grinding!", "Community is key!", "One step closer!", "Slowly but surely!", "Checking in!"
-]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Discord Text Table</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      font-size: 8px;
+    }
+    td {
+      border: 1px solid #aaa;
+      padding: 4px;
+    }
+    .textbox-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+    }
+    .textbox {
+      transform: scale(1.2);
+    }
+    button {
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
 
-# Generowanie HTML tabeli z checkboxami i przyciskami kopiowania
-html_output = '<table style="font-size: 8px; border-collapse: collapse; border: 1px solid #ccc; width: 100%;">\n  <tbody>\n'
+<h3>Ready-to-copy Discord Messages</h3>
 
-for row in range(10):
-    html_output += '    <tr>\n'
-    for col in range(5):
-        index = row * 5 + col
-        text = texts[index]
-        html_output += f"""      <td style='border: 1px solid #aaa; padding: 4px; white-space: nowrap; display: flex; align-items: center; justify-content: space-between; gap: 8px;'>
-        <input type="checkbox" class="textbox">
-        <span>{text}</span>
-        <button data-text="{text}" onclick="copyText(this)" onmouseleave="hideTooltip(this)" style="cursor: pointer; background: none; border: none; font-size: 12px;">📋</button>
-        <span style="visibility: hidden; background: #333; color: #fff; padding: 2px 6px; border-radius: 4px; font-size: 10px; white-space: nowrap;">Copied!</span>
-      </td>\n"""
-    html_output += '    </tr>\n'
+<table>
+  <tr>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Hey everyone!</span>
+  <button data-text="Hey everyone!" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>How's it going?</span>
+  <button data-text="How's it going?" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Hope you're having a good day!</span>
+  <button data-text="Hope you're having a good day!" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Just checking in 👋</span>
+  <button data-text="Just checking in 👋" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Loving the vibes here!</span>
+  <button data-text="Loving the vibes here!" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+  </tr>
+  <tr>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Back again 🙌</span>
+  <button data-text="Back again 🙌" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Another day, another update!</span>
+  <button data-text="Another day, another update!" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Still exploring the server!</span>
+  <button data-text="Still exploring the server!" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Excited about this project!</span>
+  <button data-text="Excited about this project!" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Always learning something new!</span>
+  <button data-text="Always learning something new!" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+  </tr>
+  <tr>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Happy to be here!</span>
+  <button data-text="Happy to be here!" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Great to see the activity!</span>
+  <button data-text="Great to see the activity!" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Enjoying the energy here!</span>
+  <button data-text="Enjoying the energy here!" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>You guys rock!</span>
+  <button data-text="You guys rock!" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>What’s up, team?</span>
+  <button data-text="What’s up, team?" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+  </tr>
+  <tr>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Just saying hello 👋</span>
+  <button data-text="Just saying hello 👋" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Still around!</span>
+  <button data-text="Still around!" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Following the journey!</span>
+  <button data-text="Following the journey!" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Good to be part of this!</span>
+  <button data-text="Good to be part of this!" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Checking in for the day!</span>
+  <button data-text="Checking in for the day!" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+  </tr>
+  <tr>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Hope everyone’s doing well!</span>
+  <button data-text="Hope everyone’s doing well!" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Let’s keep building!</span>
+  <button data-text="Let’s keep building!" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Much love to the devs!</span>
+  <button data-text="Much love to the devs!" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Onwards and upwards 🚀</span>
+  <button data-text="Onwards and upwards 🚀" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Glad to contribute!</span>
+  <button data-text="Glad to contribute!" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+  </tr>
+  <tr>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Every step counts!</span>
+  <button data-text="Every step counts!" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Let’s make it big!</span>
+  <button data-text="Let’s make it big!" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>This looks promising!</span>
+  <button data-text="This looks promising!" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Always something new!</span>
+  <button data-text="Always something new!" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Let’s gooo!</span>
+  <button data-text="Let’s gooo!" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+  </tr>
+  <tr>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Cheers to progress!</span>
+  <button data-text="Cheers to progress!" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Quick check-in!</span>
+  <button data-text="Quick check-in!" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Keep it up, all!</span>
+  <button data-text="Keep it up, all!" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Nice to see you again!</span>
+  <button data-text="Nice to see you again!" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>How’s the dev going?</span>
+  <button data-text="How’s the dev going?" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+  </tr>
+  <tr>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Pumped for what’s next!</span>
+  <button data-text="Pumped for what’s next!" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Staying tuned!</span>
+  <button data-text="Staying tuned!" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Just dropped by 👋</span>
+  <button data-text="Just dropped by 👋" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>One message at a time!</span>
+  <button data-text="One message at a time!" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>I’m learning a lot here!</span>
+  <button data-text="I’m learning a lot here!" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+  </tr>
+  <tr>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>This community is awesome!</span>
+  <button data-text="This community is awesome!" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Enjoying the project updates!</span>
+  <button data-text="Enjoying the project updates!" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>What are you all working on?</span>
+  <button data-text="What are you all working on?" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Let’s build something great!</span>
+  <button data-text="Let’s build something great!" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Keep up the great work!</span>
+  <button data-text="Keep up the great work!" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+  </tr>
+  <tr>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Super exciting updates!</span>
+  <button data-text="Super exciting updates!" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Hi team, just checking in!</span>
+  <button data-text="Hi team, just checking in!" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Happy to be here again!</span>
+  <button data-text="Happy to be here again!" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Just saying hello 👋</span>
+  <button data-text="Just saying hello 👋" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+    <td><div class="textbox-row">
+  <input type="checkbox" class="textbox">
+  <span>Nice weather today ☀️</span>
+  <button data-text="Nice weather today ☀️" onclick="copyText(this)" onmouseleave="hideTooltip(this)">📋</button>
+  <span style="visibility:hidden;">Copied!</span>
+</div></td>
+  </tr>
 
-html_output += '  </tbody>\n</table>\n'
-html_output += """
-<button onclick="resetTextCheckboxes()" style="margin-top: 10px; background: #e67e22; color: #fff; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer;">RESET TEXTS</button>
-"""
+</table>
 
-from ace_tools import display_dataframe_to_user
-HTML(html_output)
+<button onclick="resetTextCheckboxes()" style="margin-top: 20px; padding: 8px 14px; font-weight: bold; background: #444; color: white; border: none; border-radius: 4px;">RESET TEXT CHECKBOXES</button>
 
+<script>
+  function copyText(button) {
+    const text = button.getAttribute("data-text");
+    navigator.clipboard.writeText(text).then(() => {
+      const tooltip = button.nextElementSibling;
+      tooltip.style.visibility = "visible";
+      setTimeout(() => {
+        tooltip.style.visibility = "hidden";
+      }, 1500);
+    });
+  }
 
+  function hideTooltip(button) {
+    const tooltip = button.nextElementSibling;
+    tooltip.style.visibility = "hidden";
+  }
 
+  function resetTextCheckboxes() {
+    document.querySelectorAll('.textbox').forEach(cb => cb.checked = false);
+  }
+</script>
 
-
+</body>
+</html>
 
 
 
