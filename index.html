@@ -28,10 +28,11 @@ body {
 }
 
 /* Wspólne ustawienia dla obu tabel */
-table {
+.tables-container table {
   border-collapse: collapse;
   width: 100%;
 }
+
 
 /* Styl komórek */
 th, td {
@@ -81,6 +82,66 @@ td:last-child, th:last-child {
   text-align: center;
   font-weight: bold;
 }
+    .discord-table {
+    margin-top: 40px;
+    border-collapse: collapse;
+    border: 1px solid #aaa;
+    width: auto;
+    table-layout: auto;
+  }
+
+  .discord-table th, .discord-table td {
+    padding: 8px;
+    white-space: nowrap;
+    border: 1px solid #aaa;
+    vertical-align: top;
+  }
+
+  .discord-table th {
+    background-color: #f2f2f2;
+    text-align: center;
+    font-weight: bold;
+  }
+
+.single-column-tables {
+  margin-top: 40px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  font-family: sans-serif;
+}
+
+.single-column-tables table {
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.05);
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.single-column-tables th {
+  background-color: #f2f2f2;
+  padding: 8px 12px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.single-column-tables td {
+  padding: 6px 12px;
+  border-top: 1px solid #eee;
+}
+
+.single-column-tables a {
+  color: #0000ee;
+  text-decoration: none;
+}
+
+.single-column-tables a:hover {
+  text-decoration: underline;
+}
+
+    
 </style> <!-- ← ZAMKNIĘCIE STYLU! -->
 
 </head>
@@ -246,144 +307,65 @@ td:last-child, th:last-child {
 
 
 
-<table style="margin-top: 40px; border-collapse: collapse; border: 1px solid #aaa; table-layout: auto;">
+<table class="discord-table">
   <thead>
     <tr>
-      <th style="padding: 8px; background-color: #f2f2f2; white-space: nowrap;">DISCORD</th>
-      <th style="padding: 8px; background-color: #f2f2f2; white-space: nowrap;">CLAIM DAILY</th>
-      <th style="padding: 8px; background-color: #f2f2f2; white-space: nowrap;">SOCIAL/ENGAGE</th>
-      <th style="padding: 8px; background-color: #f2f2f2; white-space: nowrap;">GM</th>
-      <th style="padding: 8px; background-color: #f2f2f2; white-space: nowrap;">CHAT</th>
+      <th>DISCORD</th>
+      <th>CLAIM DAILY</th>
+      <th>SOCIAL/ENGAGE</th>
+      <th>GM</th>
+      <th>CHAT</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="padding: 8px; white-space: nowrap;">
-        <a href="https://discord.com/channels/1209630079936630824/1215129614939332728">SAHARA</a>
-        (<a href="https://discord.com/channels/1209630079936630824/1215129614939332728" target="_blank">C</a>)
-      </td>
-      <td style="padding: 8px; white-space: nowrap;">
-        <label><input type="checkbox" class="check table3" data-id="discord1">
-          <a href="https://discord.com/channels/1209630079936630824/1280446642528456705">claim daily</a>
-          (<a href="https://discord.com/channels/1209630079936630824/1280446642528456705" target="_blank">C</a>)
-        </label>
-      </td>
-      <td style="padding: 8px; white-space: nowrap;">
-        <label><input type="checkbox" class="check table3" data-id="discord2">
-          <a href="https://discord.com/channels/1209630079936630824/1280246851739848818">social</a>
-          (<a href="https://discord.com/channels/1209630079936630824/1280246851739848818" target="_blank">C</a>)
-        </label>
-      </td>
-      <td style="padding: 8px; white-space: nowrap;">
-        <label><input type="checkbox" class="check table3" data-id="discord3">
-          <a href="https://discord.com/channels/1209630079936630824/1275198783621304342">gm</a>
-          (<a href="https://discord.com/channels/1209630079936630824/1275198783621304342" target="_blank">C</a>)
-        </label>
-      </td>
-      <td style="padding: 8px; white-space: nowrap;">
-        <label><input type="checkbox" class="check table3" data-id="discord4">
-          <a href="https://discord.com/channels/1209630079936630824/1309520236135055444">Poland</a>
-          (<a href="https://discord.com/channels/1209630079936630824/1309520236135055444" target="_blank">C</a>)
-        </label> /
-        <label><input type="checkbox" class="check table3" data-id="discord5">
-          <a href="https://discord.com/channels/1209630079936630824/1316229370372690042">General</a>
-          (<a href="https://discord.com/channels/1209630079936630824/1316229370372690042" target="_blank">C</a>)
-        </label>
+      <td><a href="https://discord.com/channels/1209630079936630824/1215129614939332728">SAHARA</a> (<a href="https://discord.com/channels/1209630079936630824/1215129614939332728" target="_blank">C</a>)</td>
+      <td><label><input type="checkbox" class="check table3" data-id="discord1"> <a href="https://discord.com/channels/1209630079936630824/1280446642528456705">claim daily</a> (<a href="https://discord.com/channels/1209630079936630824/1280446642528456705" target="_blank">C</a>)</label></td>
+      <td><label><input type="checkbox" class="check table3" data-id="discord2"> <a href="https://discord.com/channels/1209630079936630824/1280246851739848818">social</a> (<a href="https://discord.com/channels/1209630079936630824/1280246851739848818" target="_blank">C</a>)</label></td>
+      <td><label><input type="checkbox" class="check table3" data-id="discord3"> <a href="https://discord.com/channels/1209630079936630824/1275198783621304342">gm</a> (<a href="https://discord.com/channels/1209630079936630824/1275198783621304342" target="_blank">C</a>)</label></td>
+      <td>
+        <label><input type="checkbox" class="check table3" data-id="discord4"> <a href="https://discord.com/channels/1209630079936630824/1309520236135055444">Poland</a> (<a href="https://discord.com/channels/1209630079936630824/1309520236135055444" target="_blank">C</a>)</label> /
+        <label><input type="checkbox" class="check table3" data-id="discord5"> <a href="https://discord.com/channels/1209630079936630824/1316229370372690042">General</a> (<a href="https://discord.com/channels/1209630079936630824/1316229370372690042" target="_blank">C</a>)</label>
       </td>
     </tr>
-    <!-- IRYS -->
+
     <tr>
-      <td style="padding: 8px; white-space: nowrap;">
-        <a href="https://discord.com/channels/1258035753196457984/1334930752432771113">IRYS</a> (<a href="https://discord.com/channels/1258035753196457984/1334930752432771113" target="_blank">C</a>)
-      </td>
-      <td style="padding: 8px; white-space: nowrap;"></td>
-      <td style="padding: 8px; white-space: nowrap;"></td>
-      <td style="padding: 8px; white-space: nowrap;">
-        <label><input type="checkbox" class="check table3" data-id="discord6">
-          <a href="https://discord.com/channels/1258035753196457984/1329175479684698173">hirys</a> (<a href="https://discord.com/channels/1258035753196457984/1329175479684698173" target="_blank">C</a>)
-        </label>
-      </td>
-      <td style="padding: 8px; white-space: nowrap;">
-        <label><input type="checkbox" class="check table3" data-id="discord7">
-          <a href="https://discord.com/channels/1258035753196457984/1329442145136021516">General</a> (<a href="https://discord.com/channels/1258035753196457984/1329442145136021516" target="_blank">C</a>)
-        </label>
+      <td><a href="https://discord.com/channels/1258035753196457984/1334930752432771113">IRYS</a> (<a href="https://discord.com/channels/1258035753196457984/1334930752432771113" target="_blank">C</a>)</td>
+      <td></td>
+      <td></td>
+      <td><label><input type="checkbox" class="check table3" data-id="discord6"> <a href="https://discord.com/channels/1258035753196457984/1329175479684698173">hirys</a> (<a href="https://discord.com/channels/1258035753196457984/1329175479684698173" target="_blank">C</a>)</label></td>
+      <td><label><input type="checkbox" class="check table3" data-id="discord7"> <a href="https://discord.com/channels/1258035753196457984/1329442145136021516">General</a> (<a href="https://discord.com/channels/1258035753196457984/1329442145136021516" target="_blank">C</a>)</label></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://discord.com/channels/1338264860496236556/1344108079121436712">BLACKHOLE</a> (<a href="https://discord.com/channels/1338264860496236556/1344108079121436712" target="_blank">C</a>)</td>
+      <td></td>
+      <td><label><input type="checkbox" class="check table3" data-id="discord8"> <a href="https://discord.com/channels/1338264860496236556/1344108731415138415">social</a> (<a href="https://discord.com/channels/1338264860496236556/1344108731415138415" target="_blank">C</a>)</label></td>
+      <td><label><input type="checkbox" class="check table3" data-id="discord9"> <a href="https://discord.com/channels/1338264860496236556/1375200474805829642">gm</a> (<a href="https://discord.com/channels/1338264860496236556/1375200474805829642" target="_blank">C</a>)</label></td>
+      <td>
+        <label><input type="checkbox" class="check table3" data-id="discord10"> <a href="https://discord.com/channels/1338264860496236556/1338264861095755840">General</a> (<a href="https://discord.com/channels/1338264860496236556/1338264861095755840" target="_blank">C</a>)</label> /
+        <label><input type="checkbox" class="check table3" data-id="discord11"> <a href="https://discord.com/channels/1338264860496236556/1377743281827614740">Faucet</a> (<a href="https://discord.com/channels/1338264860496236556/1377743281827614740" target="_blank">C</a>)</label>
       </td>
     </tr>
-    <!-- BLACKHOLE -->
+
     <tr>
-      <td style="padding: 8px; white-space: nowrap;">
-        <a href="https://discord.com/channels/1338264860496236556/1344108079121436712">BLACKHOLE</a> (<a href="https://discord.com/channels/1338264860496236556/1344108079121436712" target="_blank">C</a>)
-      </td>
-      <td style="padding: 8px; white-space: nowrap;"></td>
-      <td style="padding: 8px; white-space: nowrap;">
-        <label><input type="checkbox" class="check table3" data-id="discord8">
-          <a href="https://discord.com/channels/1338264860496236556/1344108731415138415">social</a> (<a href="https://discord.com/channels/1338264860496236556/1344108731415138415" target="_blank">C</a>)
-        </label>
-      </td>
-      <td style="padding: 8px; white-space: nowrap;">
-        <label><input type="checkbox" class="check table3" data-id="discord9">
-          <a href="https://discord.com/channels/1338264860496236556/1375200474805829642">gm</a> (<a href="https://discord.com/channels/1338264860496236556/1375200474805829642" target="_blank">C</a>)
-        </label>
-      </td>
-      <td style="padding: 8px; white-space: nowrap;">
-        <label><input type="checkbox" class="check table3" data-id="discord10">
-          <a href="https://discord.com/channels/1338264860496236556/1338264861095755840">General</a> (<a href="https://discord.com/channels/1338264860496236556/1338264861095755840" target="_blank">C</a>)
-        </label> /
-        <label><input type="checkbox" class="check table3" data-id="discord11">
-          <a href="https://discord.com/channels/1338264860496236556/1377743281827614740">Faucet</a> (<a href="https://discord.com/channels/1338264860496236556/1377743281827614740" target="_blank">C</a>)
-        </label>
-      </td>
+      <td><a href="https://discord.com/channels/1209923224620761088/1209925376030150686">SOMNIA</a> (<a href="https://discord.com/channels/1209923224620761088/1209925376030150686" target="_blank">C</a>)</td>
+      <td></td>
+      <td><label><input type="checkbox" class="check table3" data-id="discord12"> <a href="https://discord.com/channels/1209923224620761088/1268946748844277911">social</a> (<a href="https://discord.com/channels/1209923224620761088/1268946748844277911" target="_blank">C</a>)</label></td>
+      <td><label><input type="checkbox" class="check table3" data-id="discord13"> <a href="https://discord.com/channels/1209923224620761088/1209926199019569303">gsomnia</a> (<a href="https://discord.com/channels/1209923224620761088/1209926199019569303" target="_blank">C</a>)</label></td>
+      <td><label><input type="checkbox" class="check table3" data-id="discord14"> <a href="https://discord.com/channels/1209923224620761088/1209925258585571399">General</a> (<a href="https://discord.com/channels/1209923224620761088/1209925258585571399" target="_blank">C</a>)</label></td>
     </tr>
-    <!-- SOMNIA -->
+
     <tr>
-      <td style="padding: 8px; white-space: nowrap;">
-        <a href="https://discord.com/channels/1209923224620761088/1209925376030150686">SOMNIA</a> (<a href="https://discord.com/channels/1209923224620761088/1209925376030150686" target="_blank">C</a>)
-      </td>
-      <td style="padding: 8px; white-space: nowrap;"></td>
-      <td style="padding: 8px; white-space: nowrap;">
-        <label><input type="checkbox" class="check table3" data-id="discord12">
-          <a href="https://discord.com/channels/1209923224620761088/1268946748844277911">social</a> (<a href="https://discord.com/channels/1209923224620761088/1268946748844277911" target="_blank">C</a>)
-        </label>
-      </td>
-      <td style="padding: 8px; white-space: nowrap;">
-        <label><input type="checkbox" class="check table3" data-id="discord13">
-          <a href="https://discord.com/channels/1209923224620761088/1209926199019569303">gsomnia</a> (<a href="https://discord.com/channels/1209923224620761088/1209926199019569303" target="_blank">C</a>)
-        </label>
-      </td>
-      <td style="padding: 8px; white-space: nowrap;">
-        <label><input type="checkbox" class="check table3" data-id="discord14">
-          <a href="https://discord.com/channels/1209923224620761088/1209925258585571399">General</a> (<a href="https://discord.com/channels/1209923224620761088/1209925258585571399" target="_blank">C</a>)
-        </label>
-      </td>
-    </tr>
-    <!-- NATIVE SUI -->
-    <tr>
-      <td style="padding: 8px; white-space: nowrap;">
-        <a href="https://discord.com/channels/1262723650424016946/1262756638171992095">NATIVE SUI</a> (<a href="https://discord.com/channels/1262723650424016946/1262756638171992095" target="_blank">C</a>)
-      </td>
-      <td style="padding: 8px; white-space: nowrap;">
-        <label><input type="checkbox" class="check table3" data-id="discord15">
-          <a href="https://discord.com/channels/1262723650424016946/1262758096032497735">claim daily</a> (<a href="https://discord.com/channels/1262723650424016946/1262758096032497735" target="_blank">C</a>)
-        </label>
-      </td>
-      <td style="padding: 8px; white-space: nowrap;">
-        <label><input type="checkbox" class="check table3" data-id="discord16">
-          <a href="https://discord.com/channels/1262723650424016946/1358750604738035895">social</a> (<a href="https://discord.com/channels/1262723650424016946/1358750604738035895" target="_blank">C</a>)
-        </label>
-      </td>
-      <td style="padding: 8px; white-space: nowrap;">
-        <label><input type="checkbox" class="check table3" data-id="discord17">
-          <a href="https://discord.com/channels/1262723650424016946/1262757322816753674">gnative</a> (<a href="https://discord.com/channels/1262723650424016946/1262757322816753674" target="_blank">C</a>)
-        </label>
-      </td>
-      <td style="padding: 8px; white-space: nowrap;">
-        <label><input type="checkbox" class="check table3" data-id="discord18">
-          <a href="https://discord.com/channels/1262723650424016946/1262797227315957781">General</a> (<a href="https://discord.com/channels/1262723650424016946/1262797227315957781" target="_blank">C</a>)
-        </label>
-      </td>
+      <td><a href="https://discord.com/channels/1262723650424016946/1262756638171992095">NATIVE SUI</a> (<a href="https://discord.com/channels/1262723650424016946/1262756638171992095" target="_blank">C</a>)</td>
+      <td><label><input type="checkbox" class="check table3" data-id="discord15"> <a href="https://discord.com/channels/1262723650424016946/1262758096032497735">claim daily</a> (<a href="https://discord.com/channels/1262723650424016946/1262758096032497735" target="_blank">C</a>)</label></td>
+      <td><label><input type="checkbox" class="check table3" data-id="discord16"> <a href="https://discord.com/channels/1262723650424016946/1358750604738035895">social</a> (<a href="https://discord.com/channels/1262723650424016946/1358750604738035895" target="_blank">C</a>)</label></td>
+      <td><label><input type="checkbox" class="check table3" data-id="discord17"> <a href="https://discord.com/channels/1262723650424016946/1262757322816753674">gnative</a> (<a href="https://discord.com/channels/1262723650424016946/1262757322816753674" target="_blank">C</a>)</label></td>
+      <td><label><input type="checkbox" class="check table3" data-id="discord18"> <a href="https://discord.com/channels/1262723650424016946/1262797227315957781">General</a> (<a href="https://discord.com/channels/1262723650424016946/1262797227315957781" target="_blank">C</a>)</label></td>
     </tr>
   </tbody>
 </table>
+
 
  <script>
     // Przywrócenie stanu checkboxów
@@ -428,39 +410,8 @@ td:last-child, th:last-child {
 <p>&nbsp;</p>
 <p>&nbsp;</p>
   
-<div class="tables-container" style="margin-top: 40px; display: flex; gap: 20px; align-items: flex-start; font-family: sans-serif;">
+<div class="single-column-tables">
 
-  <style>
-    .tables-container table {
-      border-collapse: collapse;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.05);
-      font-size: 14px;
-      white-space: nowrap;
-    }
-
-    .tables-container th {
-      background-color: #f2f2f2;
-      padding: 8px 12px;
-      text-align: center;
-      font-weight: bold;
-    }
-
-    .tables-container td {
-      padding: 6px 12px;
-      border-top: 1px solid #eee;
-    }
-
-    .tables-container a {
-      color: #0000ee;
-      text-decoration: none;
-    }
-
-    .tables-container a:hover {
-      text-decoration: underline;
-    }
-  </style>
   
   <!-- MONAD -->
   <table>
