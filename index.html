@@ -267,7 +267,49 @@
 
   <!-- NOWE PREMIUM -->
   <tr><td colspan="2"><strong>🔷 KATEGORIA: NOWE PREMIUM</strong></td></tr>
-<tr><td><a href="https://app.galxe.com/quest/Momentum/GCX1utpZNz">MOMENTUM GALXE DAILY</a> (<a href="https://app.galxe.com/quest/Momentum/GCX1utpZNz" target="_blank">C</a>)</td><td><label><input type="checkbox" class="check table1" data-id="premium1"> CHECK</label></td></tr>
+<tr><td><a href="https://app.galxe.com/quest/Momentum/GCX1utpZNz">MOMENTUM GALXE DAILY</a> (<a href="https://app.galxe.com/quest/Momentum/GCX1utpZNz" target="_blank">C</a>)</td><td><label><input type="checkbox" class="check table1" data-id="premium1"> QUEST</label>&nbsp;
+<label><input type="checkbox" class="check table1" data-id="PREMIUM1A"> <a href="https://discord.com/channels/948033443483254845/1027161980970205225">DISCORD</a> (<a href="https://discord.com/channels/948033443483254845/1027161980970205225" target="_blank">C</a>)</label>&nbsp;
+<div style="display: flex; align-items: center; gap: 8px; margin-top: 20px; position: relative;">
+  <span style="font-weight: bold;">Momentum...</span>
+  <button onclick="copyMomentum()" onmouseleave="hideTooltip()" style="cursor: pointer; background: none; border: none; font-size: 16px;">
+    📋
+  </button>
+  <span id="tooltip" style="
+    visibility: hidden;
+    position: absolute;
+    top: -25px;
+    left: 80px;
+    background: #333;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 10;
+  ">
+    Skopiowano!
+  </span>
+</div>
+
+<script>
+  function copyMomentum() {
+    const text = "Momentum Where Money Flows";
+    navigator.clipboard.writeText(text).then(() => {
+      const tooltip = document.getElementById("tooltip");
+      tooltip.style.visibility = "visible";
+      setTimeout(() => {
+        tooltip.style.visibility = "hidden";
+      }, 1500); // dymek znika po 1,5 sekundy
+    });
+  }
+
+  function hideTooltip() {
+    const tooltip = document.getElementById("tooltip");
+    tooltip.style.visibility = "hidden";
+  }
+</script>
+
+</td></tr>
 <tr><td><a href="https://app.mmt.finance/leaderboard">MOMENTUM SUI</a> (<a href="https://app.mmt.finance/leaderboard" target="_blank">C</a>)</td><td><label><input type="checkbox" class="check table1" data-id="premium2"> CHECK</label></td></tr>
 <tr><td><a href="https://moonveil.gg/LoyaltyProgram/earn?tabKey=Events">MOONVEIL TASKS</a> (<a href="https://moonveil.gg/LoyaltyProgram/earn?tabKey=Events" target="_blank">C</a>)</td><td><label><input type="checkbox" class="check table1" data-id="premium3"> CHECK</label></td></tr>
 <tr><td><a href="https://bridge.testnet.moonveil.gg/">MOONVEIL BRIDGE TESTNET</a> (<a href="https://bridge.testnet.moonveil.gg/" target="_blank">C</a>)</td><td><label><input type="checkbox" class="check table1" data-id="premium6"> CHECK</label></td></tr>
