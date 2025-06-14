@@ -4,79 +4,82 @@
   <meta charset="UTF-8">
   <title>CHECK</title>
   <style>
-    body {
-      font-family: sans-serif;
-      padding: 20px;
-    }
-
-    .tables-container {
-  display: block;
+body {
+  font-family: sans-serif;
+  padding: 20px;
 }
 
-.tables-container table {
-  display: inline-block;
-  vertical-align: top;
-  margin-right: 20px;
-  width: 500px; 
+/* Kontener na obie tabele – elastyczny układ obok siebie */
+.tables-container {
+  display: flex;
+  gap: 20px;
 }
 
+/* Tabela projektów – lewa, szersza (60%) */
+.tables-container table:first-of-type {
+  flex: 0 0 60%;
+}
 
-  table {
+/* Tabela faucetów – prawa, węższa (40%) */
+.tables-container table:last-of-type {
+  flex: 0 0 40%;
+}
+
+/* Wspólne ustawienia dla obu tabel */
+table {
   border-collapse: collapse;
-  min-width: 280px;
-  max-width: 100%;
+  width: 100%;
 }
 
-    th, td {
-      border: 1px solid #aaa;
-      padding: 8px;
-      text-align: left;
-      vertical-align: top;
-    }
+/* Styl komórek */
+th, td {
+  border: 1px solid #aaa;
+  padding: 8px;
+  text-align: left;
+  vertical-align: top;
+}
 
-    th {
-      background-color: #f2f2f2;
-    }
+/* Nagłówki */
+th {
+  background-color: #f2f2f2;
+}
 
-    th .reset-btn {
-      display: block;
-      margin: 0 auto;
-    }
+th .reset-btn {
+  display: block;
+  margin: 0 auto;
+}
 
-    td:first-child, th:first-child {
-      width: 30%; /* zmniejszona szerokość kolumny z linkami */
-    }
+/* Kolumna z linkami – 30% */
+td:first-child, th:first-child {
+  width: 30%;
+}
 
-    td:last-child, th:last-child {
-      width: 70%; /* więcej miejsca dla checków */
-    }
+/* Kolumna z checkboxami – 70% */
+td:last-child, th:last-child {
+  width: 70%;
+}
 
-    .reset-all {
-      margin-bottom: 20px;
-      padding: 10px 18px;
-      font-weight: bold;
-      background: #e74c3c;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
+/* Przycisk RESET ALL */
+.reset-all {
+  margin-bottom: 20px;
+  padding: 10px 18px;
+  font-weight: bold;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
 
-    .link-item {
-      list-style: none;
-    }
+.link-item {
+  list-style: none;
+}
 
-    .centered {
-      text-align: center;
-      font-weight: bold;
-    }
-  </style>
-</head>
-<body>
+.centered {
+  text-align: center;
+  font-weight: bold;
+}
 
-  <button class="reset-all" id="reset-all">RESET ALL</button>
-
-  <div class="tables-container">
 
 
     <!-- Tabela 1 – Projekty -->
