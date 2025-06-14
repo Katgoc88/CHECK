@@ -475,6 +475,64 @@
       <td><label><input type="checkbox" class="check table3" data-id="discordmomentumgm"> <a href="https://discord.com/channels/948033443483254845/1039490939539947520">gm</a> (<a href="https://discord.com/channels/948033443483254845/1039490939539947520" target="_blank">C</a>)</label></td>
       <td><label><input type="checkbox" class="check table3" data-id="discordmomentumgeneral"> <a href="https://discord.com/channels/948033443483254845/1027161980970205225">General</a> (<a href="https://discord.com/channels/948033443483254845/1027161980970205225" target="_blank">C</a>)</label></td>
     </tr>
+
+<tr>
+      <td><a href="https://discord.com/channels/1270276651636232282/1270276652315971667">PHAROS</a> (<a href="https://discord.com/channels/1270276651636232282/1270276652315971667" target="_blank">C</a>)</td>
+      <td></td>
+      <td><label><input type="checkbox" class="check table3" data-id="discordPHAROSSOCIAL"> <a href="https://discord.com/channels/1270276651636232282/1305150259596496897">social</a> (<a href="https://discord.com/channels/1270276651636232282/1305150259596496897" target="_blank">C</a>)</label></td>
+       <td></td>
+      <td><label><input type="checkbox" class="check table3" data-id="discordPHAROSgeneral"> <a href="https://discord.com/channels/1270276651636232282/1271267660977410079">General</a> (<a href="https://discord.com/channels/1270276651636232282/1271267660977410079" target="_blank">C</a>)</label>
+      /  <td><label><input type="checkbox" class="check table3" data-id="discordPHAROSCOMMAND"> <a href="https://discord.com/channels/1270276651636232282/1305150517701246996">command only</a> (<a href="https://discord.com/channels/1270276651636232282/1305150517701246996" target="_blank">C</a>)</label>
+      
+      <span style="display: inline-flex; align-items: center; gap: 8px; position: relative;">
+  <span style="font-weight: bold;">/testnetinfo</span>
+  <button onclick="copyMomentum()" onmouseleave="hideTooltip()" style="cursor: pointer; background: none; border: none; font-size: 16px;">
+    📋
+  </button>
+  <span id="tooltip" style="
+    visibility: hidden;
+    position: absolute;
+    top: -25px;
+    left: 0;
+    background: #333;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 10;
+  ">
+    Skopiowano!
+  </span>
+</span>
+
+
+<script>
+  function copyMomentum() {
+    const text = "/testnetinfo";
+    navigator.clipboard.writeText(text).then(() => {
+      const tooltip = document.getElementById("tooltip");
+      tooltip.style.visibility = "visible";
+      setTimeout(() => {
+        tooltip.style.visibility = "hidden";
+      }, 1500); // dymek znika po 1,5 sekundy
+    });
+  }
+
+  function hideTooltip() {
+    const tooltip = document.getElementById("tooltip");
+    tooltip.style.visibility = "hidden";
+  }
+</script>
+      
+      
+      
+      
+      
+      
+      </td>
+    </tr>
+
     
   </tbody>
 </table>
