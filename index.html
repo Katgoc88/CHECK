@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>CHECK</title>
-  <style>
+<style>
 body {
   font-family: sans-serif;
   padding: 20px;
@@ -15,7 +15,6 @@ body {
   gap: 20px;
   align-items: flex-start; /* ✅ tabele będą równe tylko od góry */
 }
-
 
 /* Tabela projektów – lewa, szersza (60%) */
 .tables-container table:first-of-type {
@@ -32,7 +31,6 @@ body {
   border-collapse: collapse;
   width: 100%;
 }
-
 
 /* Styl komórek */
 th, td {
@@ -52,15 +50,27 @@ th .reset-btn {
   margin: 0 auto;
 }
 
-/* Kolumna z linkami – 30% */
+/* Domyślny układ kolumn – dla wszystkich tabel (np. PROJEKTY) */
 td:first-child, th:first-child {
   width: 30%;
 }
 
-/* Kolumna z checkboxami – 70% */
 td:last-child, th:last-child {
   width: 70%;
 }
+
+/* Nadpisanie tylko dla tabeli FAUCETY */
+.faucets-table td:first-child,
+.faucets-table th:first-child {
+  width: 45%;
+}
+
+.faucets-table td:last-child,
+.faucets-table th:last-child {
+  width: 55%;
+}
+</style>
+
 
 /* Przycisk RESET ALL */
 .reset-all {
@@ -259,7 +269,7 @@ td:last-child, th:last-child {
 
 
     <!-- Tabela 2 – Faucety -->
-    <table>
+    <table class="faucets-table">
   <tr>
     <th class="centered">FAUCETY / 24H</th>
     <th><button class="reset-btn" id="reset-table2">RESET</button></th>
