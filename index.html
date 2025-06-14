@@ -600,6 +600,57 @@
   
 <p>&nbsp;</p>
 <p>&nbsp;</p>
+
+import pandas as pd
+from IPython.display import display, HTML
+
+# Lista 50 tekstów angielskich
+texts = [
+    "Hello everyone!", "How's your day going?", "Wishing you a great day!", "Nice to see you all here!", "Hope you're doing well!",
+    "Great project!", "Love the updates!", "Following along!", "This looks promising!", "Let's build together!",
+    "I'm excited for what's coming.", "This is fire!", "Amazing community!", "GM everyone!", "Keep going strong!",
+    "This is really helpful.", "Thanks for the info!", "Nice work team!", "Anyone needs help?", "On it!",
+    "Daily check-in!", "Still here!", "Building every day!", "Good vibes only!", "You guys rock!",
+    "Any alpha today?", "Good job!", "Made some progress!", "Anyone else doing this?", "LFG!",
+    "Catching up on tasks!", "Any tips for this?", "Love this energy!", "Back again!", "Daily momentum!",
+    "Hope everyone's doing well.", "Cheers to the team!", "Let's grow together!", "Another day, another step!", "Stay consistent!",
+    "Keep building!", "What’s the latest?", "Any news today?", "I’m here for it!", "Learning so much!",
+    "Still grinding!", "Community is key!", "One step closer!", "Slowly but surely!", "Checking in!"
+]
+
+# Generowanie HTML tabeli z checkboxami i przyciskami kopiowania
+html_output = '<table style="font-size: 8px; border-collapse: collapse; border: 1px solid #ccc; width: 100%;">\n  <tbody>\n'
+
+for row in range(10):
+    html_output += '    <tr>\n'
+    for col in range(5):
+        index = row * 5 + col
+        text = texts[index]
+        html_output += f"""      <td style='border: 1px solid #aaa; padding: 4px; white-space: nowrap; display: flex; align-items: center; justify-content: space-between; gap: 8px;'>
+        <input type="checkbox" class="textbox">
+        <span>{text}</span>
+        <button data-text="{text}" onclick="copyText(this)" onmouseleave="hideTooltip(this)" style="cursor: pointer; background: none; border: none; font-size: 12px;">📋</button>
+        <span style="visibility: hidden; background: #333; color: #fff; padding: 2px 6px; border-radius: 4px; font-size: 10px; white-space: nowrap;">Copied!</span>
+      </td>\n"""
+    html_output += '    </tr>\n'
+
+html_output += '  </tbody>\n</table>\n'
+html_output += """
+<button onclick="resetTextCheckboxes()" style="margin-top: 10px; background: #e67e22; color: #fff; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer;">RESET TEXTS</button>
+"""
+
+from ace_tools import display_dataframe_to_user
+HTML(html_output)
+
+
+
+
+
+
+
+
+
+  
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
@@ -1165,7 +1216,28 @@
 </script>
 
 
+  
+<script>
+  function copyText(button) {
+    const text = button.getAttribute("data-text");
+    navigator.clipboard.writeText(text).then(() => {
+      const tooltip = button.nextElementSibling;
+      tooltip.style.visibility = "visible";
+      setTimeout(() => {
+        tooltip.style.visibility = "hidden";
+      }, 1500);
+    });
+  }
 
+  function hideTooltip(button) {
+    const tooltip = button.nextElementSibling;
+    tooltip.style.visibility = "hidden";
+  }
+
+  function resetTextCheckboxes() {
+    document.querySelectorAll('.textbox').forEach(cb => cb.checked = false);
+  }
+</script>
 
   
 
