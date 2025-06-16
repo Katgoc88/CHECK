@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Zaloguj się</title>
+</head>
+<body>
+  <h2>Zaloguj się przez Google</h2>
+  <button id="login">Login with Google</button>
+  <script type="module">
+    import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+
+    const supabase = createClient(
+      "https://jrebwhkfpovckibmovfm.supabase.co",
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpyZWJ3aGtmcG92Y2tpYm1vdmZtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTAxMTA3MDAsImV4cCI6MjA2NTY4NjcwMH0.KEqwzNTpni8hO7BR-Er3rWpXlG0CswjcBbq7wYRUhrU"
+    );
+
+    document.getElementById("login").onclick = async () => {
+      await supabase.auth.signInWithOAuth({
+        provider: "google",
+        options: { redirectTo: location.origin + "/index.html" }
+      });
+    };
+  </script>
+</body>
+</html>
