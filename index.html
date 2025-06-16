@@ -158,6 +158,18 @@
 </head>
 <body>
 
+<script>
+    const password = "katgocheck"; // 🔐 Zmień to hasło na swoje
+
+    const userInput = prompt("Enter password to access this page:");
+
+    if (userInput !== password) {
+      document.body.innerHTML = "<h2 style='text-align:center; margin-top: 100px;'>Access Denied</h2>";
+    }
+  </script>
+
+
+  
 <button class="reset-all" id="reset-all">RESET ALL</button>
 
 <div class="tables-container">
